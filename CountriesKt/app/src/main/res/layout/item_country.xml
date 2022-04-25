@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="country"
+            type="com.ahmettufuk.countrieskt.model.Country" />
+        <variable
+            name="listener"
+            type="com.ahmettufuk.countrieskt.adapter.CountryClickListener" />
+
+    </data>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:onClick="@{listener::onCountryClickListener}"
+        android:layout_height="150dp">
+        <TextView
+            android:id="@+id/countryUuidText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:text="@{String.valueOf(country.uuid)}"></TextView>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:padding="3dp"
+            android:downloadImage="@{country.flagImageUrl}"
+            >
+        </ImageView>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5">
+            <TextView
+                android:id="@+id/nameCountry"
+                android:text="@{country.countryName}"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="10dp"
+                android:padding="15dp">
+            </TextView>
+
+            <TextView
+                android:id="@+id/capitalCountry"
+                android:text="@{country.capitalName}"
+                android:textSize="16sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginTop="15dp"
+                android:padding="15dp">
+
+            </TextView>
+
+        </LinearLayout>
+
+</LinearLayout>
+</layout>
